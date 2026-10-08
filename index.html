@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoSort AI – Smart Waste Collection & Recycling Platform</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/forms.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <!-- Three.js r128 UMD build via CDN (Section 0.3) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+  <!-- Landing Navigation -->
+  <header class="landing-nav">
+    <div class="container landing-nav-inner">
+      <a href="/index.html" class="brand-logo">
+        <div class="brand-logo-icon">♻️</div>
+        <span>EcoSort AI</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#differentiators">Core Differentiators</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="/user/disposal-guide.html">Disposal Guide</a></li>
+        <li><a href="/login.html">Sign In</a></li>
+        <li><a href="/register.html" class="btn btn-primary btn-sm">Get Started</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero Section with 3D Centerpiece -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-tag">
+          <span>⚡ Smarter sorting for a cleaner city</span>
+        </div>
+        <h1 class="hero-title">
+          Every item has a better next step: <span>from curb to recovery.</span>
+        </h1>
+        <p class="hero-desc">
+          Identify materials, schedule a pickup, and follow each item through collection and processing with one clear, connected system.
+        </p>
+        <div class="hero-actions">
+          <a href="/user/identify-waste.html" class="btn btn-primary btn-lg">
+            📸 Scan an item
+          </a>
+          <a href="/login.html" class="btn btn-secondary btn-lg">
+            Explore the platform
+          </a>
+        </div>
+        <div style="display:flex;gap:30px;font-size:0.9rem;color:#475569;">
+          <div><strong style="color:#064e3b;font-size:1.2rem;">100%</strong><br>Chain visibility</div>
+          <div><strong style="color:#064e3b;font-size:1.2rem;">-34%</strong><br>SLA delays</div>
+          <div><strong style="color:#064e3b;font-size:1.2rem;">9</strong><br>Material streams</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 0: CORE DIFFERENTIATORS BANNER -->
+  <section id="differentiators" class="container">
+    <div class="diff-banner">
+      <div class="container">
+        <div style="text-align:center;max-width:700px;margin:0 auto 40px;">
+          <div class="diff-tag">System Differentiators</div>
+          <h2 style="color:#ffffff;font-size:2rem;margin-bottom:12px;">Intelligence that moves material forward</h2>
+          <p style="color:#94a3b8;">
+            Unlike standard waste apps with decorative charts, EcoSort AI implements closed-loop prediction-driven actions and audit-proof chain of custody.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <!-- 0.1 -->
+          <div class="diff-card">
+            <div style="font-size:2rem;margin-bottom:12px;">⚡</div>
+            <div class="diff-tag">Differentiator 0.1</div>
+            <h3 style="color:#ffffff;margin-bottom:10px;">Prediction-Driven Assignment</h3>
+            <p style="color:#cbd5e1;font-size:0.95rem;line-height:1.6;">
+              When delay prediction detects impending traffic or queue bottlenecks (risk &ge; 65%), the system <strong>actively re-ranks the collector queue</strong> to prevent SLA breaches. High area demand triggers <strong>pre-emptive staffing surge alerts</strong> before requests pile up.
+            </p>
+            <div style="margin-top:16px;">
+              <a href="/collector/assigned-pickups.html" class="btn btn-outline btn-sm" style="color:#10b981;border-color:#10b981;">
+                View Re-ranked Queue ➔
+              </a>
+            </div>
+          </div>
+
+          <!-- 0.2 -->
+          <div class="diff-card">
+            <div style="font-size:2rem;margin-bottom:12px;">🔗</div>
+            <div class="diff-tag">Differentiator 0.2</div>
+            <h3 style="color:#ffffff;margin-bottom:10px;">Verifiable Per-Item Chain of Custody</h3>
+            <p style="color:#cbd5e1;font-size:0.95rem;line-height:1.6;">
+              Every user item is cryptographically traceable from its initial AI vision scan through scale weighing, facility arrival, and final sorting disposition (recycled kg vs rejected kg). If rejected, the exact reason is shown with verified eco points.
+            </p>
+            <div style="margin-top:16px;">
+              <a href="/user/track-my-impact.html" class="btn btn-outline btn-sm" style="color:#10b981;border-color:#10b981;">
+                Inspect Chain of Custody ➔
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Role Portals Access -->
+  <section class="container" style="padding:60px 0;">
+    <div style="text-align:center;margin-bottom:40px;">
+      <h2>One system, four working views</h2>
+      <p class="text-muted">Each team sees the decisions, tasks, and proof they need to keep materials moving.</p>
+    </div>
+
+    <div class="grid-4">
+      <div class="card text-center">
+        <div style="font-size:2.5rem;margin-bottom:10px;">👤</div>
+        <h3>Resident User</h3>
+        <p class="text-muted" style="font-size:0.85rem;margin:10px 0 16px;">
+          Scan waste, schedule pickups, earn verified eco points, track per-item journey.
+        </p>
+        <a href="/user/dashboard.html" class="btn btn-secondary btn-sm" style="width:100%;">User Portal</a>
+      </div>
+
+      <div class="card text-center">
+        <div style="font-size:2.5rem;margin-bottom:10px;">🚚</div>
+        <h3>Smart Collector</h3>
+        <p class="text-muted" style="font-size:0.85rem;margin:10px 0 16px;">
+          Queue dynamically ordered by delay risk, TSP route optimization, AI correction feedback.
+        </p>
+        <a href="/collector/dashboard.html" class="btn btn-secondary btn-sm" style="width:100%;">Collector Portal</a>
+      </div>
+
+      <div class="card text-center">
+        <div style="font-size:2.5rem;margin-bottom:10px;">🏭</div>
+        <h3>Recycling Center</h3>
+        <p class="text-muted" style="font-size:0.85rem;margin:10px 0 16px;">
+          Intake inspection, record recycled vs rejected kg, log contamination reasons.
+        </p>
+        <a href="/recycling-center/dashboard.html" class="btn btn-secondary btn-sm" style="width:100%;">Facility Portal</a>
+      </div>
+
+      <div class="card text-center">
+        <div style="font-size:2.5rem;margin-bottom:10px;">🛡️</div>
+        <h3>Administrator</h3>
+        <p class="text-muted" style="font-size:0.85rem;margin:10px 0 16px;">
+          Real timestamp SLA breach metrics, pre-emptive staffing alerts, activity causal logs.
+        </p>
+        <a href="/admin/dashboard.html" class="btn btn-secondary btn-sm" style="width:100%;">Admin Portal</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background:#0f172a;color:#94a3b8;padding:40px 0;border-top:1px solid #1e293b;text-align:center;font-size:0.9rem;">
+    <div class="container">
+      <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:12px;">
+        <span style="font-size:1.4rem;">♻️</span>
+        <strong style="color:white;font-size:1.1rem;">EcoSort AI</strong>
+      </div>
+      <p>Built with Supabase, Python AI, and practical tools for the circular economy.</p>
+      <p style="margin-top:6px;font-size:0.8rem;color:#64748b;">© 2026 EcoSort AI. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/js/supabase.js"></script>
+  <script src="/js/utils.js"></script>
+</body>
+</html>

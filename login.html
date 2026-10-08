@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In – EcoSort AI</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/forms.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body style="display:flex;align-items:center;justify-content:center;min-height:100vh;background:#f8fafc;padding:20px;">
+
+  <div class="card" style="width:100%;max-width:440px;box-shadow:var(--shadow-lg);">
+    <div class="text-center" style="margin-bottom:24px;">
+      <a href="/index.html" class="brand-logo" style="justify-content:center;margin-bottom:8px;">
+        <div class="brand-logo-icon">♻️</div>
+        <span>EcoSort AI</span>
+      </a>
+      <h2 style="font-size:1.5rem;margin-bottom:4px;">Welcome Back</h2>
+      <p class="text-muted" style="font-size:0.9rem;">Sign in to access your recycling operations dashboard</p>
+    </div>
+
+    <!-- Quick Demo Logins for Instant Testing -->
+    <div style="background:#f1f5f9;border:1px solid #cbd5e1;padding:12px 14px;border-radius:10px;margin-bottom:20px;">
+      <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;color:#475569;margin-bottom:8px;">
+        ⚡ Instant 1-Click Demo Login:
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <button type="button" class="btn btn-secondary btn-sm" onclick="Auth.quickLogin('user')">
+          👤 User Demo
+        </button>
+        <button type="button" class="btn btn-secondary btn-sm" onclick="Auth.quickLogin('collector')">
+          🚚 Collector Demo
+        </button>
+        <button type="button" class="btn btn-secondary btn-sm" onclick="Auth.quickLogin('recycling_center')">
+          🏭 Recycling Demo
+        </button>
+        <button type="button" class="btn btn-secondary btn-sm" onclick="Auth.quickLogin('admin')">
+          🛡️ Admin Demo
+        </button>
+      </div>
+    </div>
+
+    <form id="login-form">
+      <div class="form-group">
+        <label class="form-label" for="login-email">Email Address</label>
+        <input type="email" id="login-email" class="form-control" placeholder="name@ecosort.ai" required>
+      </div>
+
+      <div class="form-group">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+          <label class="form-label" for="login-password" style="margin:0;">Password</label>
+          <a href="/forgot-password.html" style="font-size:0.8rem;">Forgot?</a>
+        </div>
+        <input type="password" id="login-password" class="form-control" placeholder="••••••••" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="width:100%;margin-top:10px;">
+        Sign In
+      </button>
+    </form>
+
+    <div class="text-center" style="margin-top:20px;font-size:0.85rem;color:#64748b;">
+      Don't have an account? <a href="/register.html" style="font-weight:600;">Register here</a>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/js/supabase.js"></script>
+  <script src="/js/utils.js"></script>
+  <script src="/js/auth.js"></script>
+  <script>
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value;
+      const pass = document.getElementById('login-password').value;
+
+      try {
+        const session = await Auth.login(email, pass);
+        Utils.showToast('Login successful!', 'success');
+        const role = (session && session.user && session.user.role) || 'user';
+        setTimeout(() => Auth.redirectToDashboard(role), 500);
+      } catch (err) {
+        Utils.showToast(err.message || 'Login failed', 'error');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account – EcoSort AI</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/forms.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body style="display:flex;align-items:center;justify-content:center;min-height:100vh;background:#f8fafc;padding:20px;">
+
+  <div class="card" style="width:100%;max-width:480px;box-shadow:var(--shadow-lg);">
+    <div class="text-center" style="margin-bottom:24px;">
+      <a href="/index.html" class="brand-logo" style="justify-content:center;margin-bottom:8px;">
+        <div class="brand-logo-icon">♻️</div>
+        <span>EcoSort AI</span>
+      </a>
+      <h2 style="font-size:1.5rem;margin-bottom:4px;">Join EcoSort AI</h2>
+      <p class="text-muted" style="font-size:0.9rem;">Join the circular zero-waste collection network</p>
+    </div>
+
+    <form id="register-form">
+      <div class="form-group">
+        <label class="form-label" for="reg-name">Full Name <span class="required">*</span></label>
+        <input type="text" id="reg-name" class="form-control" placeholder="Jane Doe" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="reg-email">Email Address <span class="required">*</span></label>
+        <input type="email" id="reg-email" class="form-control" placeholder="jane@example.com" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="reg-role">Role <span class="required">*</span></label>
+        <select id="reg-role" class="form-control" required>
+          <option value="user">Resident User</option>
+          <option value="collector">Smart Waste Collector</option>
+          <option value="recycling_center">Recycling Facility Operator</option>
+          <option value="admin">Platform Administrator</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="reg-pass">Password <span class="required">*</span></label>
+        <input type="password" id="reg-pass" class="form-control" placeholder="At least 6 characters" minlength="6" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="width:100%;margin-top:10px;">
+        Create Account
+      </button>
+    </form>
+
+    <div class="text-center" style="margin-top:20px;font-size:0.85rem;color:#64748b;">
+      Already registered? <a href="/login.html" style="font-weight:600;">Sign in here</a>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/js/supabase.js"></script>
+  <script src="/js/utils.js"></script>
+  <script src="/js/auth.js"></script>
+  <script>
+    document.getElementById('register-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('reg-email').value;
+      const password = document.getElementById('reg-pass').value;
+      const full_name = document.getElementById('reg-name').value;
+      const role = document.getElementById('reg-role').value;
+
+      try {
+        const res = await window.supabase.auth.signUp({
+          email,
+          password,
+          options: { data: { full_name, role } }
+        });
+        if (res.error) throw new Error(res.error.message);
+        Utils.showToast('Account created successfully!', 'success');
+        setTimeout(() => Auth.redirectToDashboard(role), 600);
+      } catch (err) {
+        Utils.showToast(err.message || 'Registration failed', 'error');
+      }
+    });
+  </script>
+</body>
+</html>
